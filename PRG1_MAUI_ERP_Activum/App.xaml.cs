@@ -11,7 +11,13 @@ namespace PRG1_MAUI_ERP_Activum
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell());
+            const double width = 400;
+            const double height = 800;
+            return new Window(new AppShell())
+            {
+                Width = width,
+                Height = height
+            };
         }
     }
 }

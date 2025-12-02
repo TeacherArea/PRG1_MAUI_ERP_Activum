@@ -162,7 +162,7 @@
                                 HeightRequest="17" />
                         <Label 
                                 Grid.Column="1" 
-                                Text="Per Diem" 
+                                Text="Traktamenten" 
                                 TextColor="White" 
                                 FontSize="18" />
                     </Grid>

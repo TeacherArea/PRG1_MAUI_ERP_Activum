@@ -18,7 +18,6 @@ namespace PRG1_MAUI_ERP_Activum
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
             return builder.Build();
         }
     }
