@@ -3,13 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.CustomersPage"
              Title="Kunder">
-    <VerticalStackLayout>
-        <Label
-            Padding="20"
-            Text="Kunder"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid RowDefinitions="Auto, *" BackgroundColor="{StaticResource Primary}" HeightRequest="100" Padding="25">
+
+        <Label Text="Hantera Kunder"
+               VerticalOptions="Center"
+               TextColor="{StaticResource White}"
+               FontSize="25" FontAttributes="Bold"/>
+    </Grid>
+
+    <ScrollView Grid.Row="1" Padding="25">
+        <VerticalStackLayout Spacing="20">
+
+            <Label Text="Registrera ny kund" FontSize="20" TextColor="{StaticResource Primary}" FontAttributes="Bold"/>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Entry Grid.Column="0" Placeholder="Förnamn"/>
+                <Entry Grid.Column="1" Placeholder="Efternamn"/>
+            </Grid>
+
+            <Entry Placeholder="E-Postadress" Keyboard="Email"/>
+            <Entry Placeholder="Telefonnummer" Keyboard="Telephone"/>
+
+            <Label Text="Födelsedatum" TextColor="{StaticResource Gray500}"/>
+            <DatePicker />
+
+            <Label Text="Kundtyp:" TextColor="{StaticResource Gray500}"/>
+            <Picker Title="Välj Kundtyp">
+            <Picker.ItemsSource>
+                <x:array Type="{x:Type x:String}">
+                    <x:String>Privatkund</x:String>
+                    <x:String>Företagskund</x:String>
+                    <x:String>Nyckelkund</x:String>
+                </x:array>
+            </Picker.ItemsSource>
+            </Picker>
+
+            <Button Text="Spara Kund"
+                    BackgroundColor="{StaticResource Tertiary}"
+                    TextColor="{StaticResource White}"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Margin="0,20,0,0"/>
+        </VerticalStackLayout>
+        
+        
+    </ScrollView>
+      
 </ContentPage>

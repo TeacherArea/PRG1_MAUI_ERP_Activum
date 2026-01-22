@@ -3,13 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.AboutPage"
              Title="Om Macrosoft">
-    <VerticalStackLayout>
-        <Label
-            Padding="20"
-            Text="Om Macrosoft"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid RowDefinitions="Auto, *, Auto" Padding="20" BackgroundColor="{StaticResource PageBackground}">
+
+
+        <VerticalStackLayout Grid.Row="0" Spacing="10">
+            <Label Text="Välkommen"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource Primary}"
+                   HorizontalOptions="Center"/>
+            <BoxView HeightRequest="2"
+             Color="{StaticResource Primary}"
+             WidthRequest="200"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="25" VerticalOptions="Center">
+            <Label Text="Välkommen till Activum"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource TextSecondary}"/>
+
+            <Label Text="Din app för smidig hantering av försäkringar, traktamenten och lönerapportering."
+                   HorizontalTextAlignment="Center"
+                   FontSize="15"
+                   TextColor="{StaticResource TextPrimary}"/>
+
+        </VerticalStackLayout>
+
+        <Label Grid.Row="2"
+               Text="Activum "
+               FontSize="20"
+               FontAttributes="Bold"
+               TextColor="{StaticResource Primary}"
+               HorizontalOptions="End"
+               />
+
+
+
+    </Grid>
 </ContentPage>
