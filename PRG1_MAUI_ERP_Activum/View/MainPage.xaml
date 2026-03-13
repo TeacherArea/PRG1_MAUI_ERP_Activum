@@ -3,22 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="PRG1_MAUI_ERP_Activum.View.MainPage"
-             Title="Start">
+             Title="Start"
+             BackgroundColor="#1E1E2E">
 
-    <ScrollView>
-        <Grid Padding="20"
-              RowDefinitions="Auto,30,40,Auto,Auto,20,Auto,Auto,50,Auto,Auto,Auto, Auto"
+    <ScrollView Padding="20">
+        <Grid RowDefinitions="Auto,30,40,Auto,Auto,20,Auto,Auto,50,Auto,Auto,Auto,Auto"
               ColumnDefinitions="*,Auto"
               RowSpacing="10">
 
             <Label Grid.Row="0" Grid.ColumnSpan="2"
                    Padding="20"
                    Text="Activum"
-                   Style="{StaticResource Headline}"
+                   TextColor="White"
+                   FontSize="36" FontAttributes="Bold"
                    SemanticProperties.HeadingLevel="Level1" />
 
             <Label Grid.Row="1" Grid.ColumnSpan="2"
                    Text="Kundnummer / Personnummer"
+                   TextColor="LightGray"
                    FontAttributes="Bold"
                    Margin="0,0,0,4"/>
 
@@ -26,6 +28,7 @@
                    Grid.Row="2"
                    Grid.Column="0"
                    Placeholder="Ange kundnr/personnr"
+                   TextColor="White" BackgroundColor="#2A2A3E"
                    ReturnType="Search"
                    Completed="OnSearchCompleted" />
 
@@ -42,6 +45,7 @@
 
             <Label Grid.Row="4" Grid.ColumnSpan="2"
                    Text="Försäkringar aktuell kund"
+                   TextColor="LightGray"
                    FontAttributes="Bold"
                    Margin="0,30,0,4"/>
 
@@ -53,6 +57,7 @@
 
             <Label Grid.Row="6" Grid.ColumnSpan="2"
                    Text="Skadeståndsanmälan (anteckningar)"
+                   TextColor="LightGray"
                    FontAttributes="Bold"
                    Margin="0,30,0,4"/>
 
@@ -60,24 +65,27 @@
                     Grid.Row="7"
                     Grid.ColumnSpan="2"
                     HeightRequest="160"
-                    AutoSize="TextChanges" />
+                    AutoSize="TextChanges"
+                    BackgroundColor="#2A2A3E" TextColor="White" />
 
             <Label Grid.Row="8" Grid.ColumnSpan="2"
                    Text="Datum skadeanmälan mottogs"
+                   TextColor="LightGray"
                    FontAttributes="Bold"
                    Margin="0,20,0,4"/>
 
             <DatePicker x:Name="DatePickerField"
                         Grid.Row="9"
                         Grid.ColumnSpan="2"
-                        Date="{x:Static sys:DateTime.Today}" />            
-            
+                        Date="{x:Static sys:DateTime.Today}"
+                        BackgroundColor="#2A2A3E" TextColor="White" />
+
             <Button Grid.Row="10" Grid.ColumnSpan="2"
                     Text="Spara anteckning"
+                    BackgroundColor="#4299E1"
+                    TextColor="White"
                     Margin="0,20,0,0"
                     Clicked="OnSaveNotesClicked" />
-
         </Grid>
     </ScrollView>
-
 </ContentPage>

@@ -2,14 +2,78 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.AboutPage"
-             Title="Om Macrosoft">
-    <VerticalStackLayout>
-        <Label
-            Padding="20"
-            Text="Om Macrosoft"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Om Oss"
+             BackgroundColor="#1E1E2E">
+
+    <ScrollView Padding="30">
+        <VerticalStackLayout Spacing="30" 
+                              VerticalOptions="Center"
+                              HorizontalOptions="Center">
+
+            <Label Text="Utvecklingsteamet" 
+                   FontSize="32" 
+                   FontAttributes="Bold" 
+                   TextColor="White" 
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0"/>
+
+            <Frame BackgroundColor="#2D3748" 
+                   BorderColor="#4A5568" 
+                   CornerRadius="8" 
+                   Padding="25"
+                   MaximumWidthRequest="400">
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="Vilka är vi?" 
+                           FontSize="22" 
+                           FontAttributes="Bold" 
+                           TextColor="White" 
+                           HorizontalOptions="Center"/>
+
+                    <Label Text="Vi är två passionerade utvecklare som har byggt detta ERP-system för Activum AB. Vi fokuserar på snygg design och stabil kod."
+                           TextColor="LightGray" 
+                           FontSize="16"
+                           HorizontalOptions="Center"
+                           LineBreakMode="WordWrap"/>
+
+                    <Label Text="Prestationstest: Båda utvecklarna scorade 98/100 i stress och logiktester, samt att vi är fina och sten smarta." 
+                           FontAttributes="Italic" 
+                           TextColor="Gray"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Kontaktuppgifter" 
+                   FontSize="20" 
+                   FontAttributes="Bold" 
+                   TextColor="#4299E1"
+                   HorizontalOptions="Center"
+                   Margin="0,30,0,15"/>
+
+            <VerticalStackLayout Spacing="12" 
+                                 HorizontalOptions="Center">
+                <Label Text="📧 Email: 2ProfessionalDevs@activum.se" 
+                       TextColor="LightGray"
+                       FontSize="16"/>
+
+                <Label Text="📞 Telefon: 070-123 45 67" 
+                       TextColor="LightGray"
+                       FontSize="16"/>
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="2" 
+                     Color="#4A5568" 
+                     WidthRequest="200"
+                     HorizontalOptions="Center"/>
+
+            <Button Text="Besök hemsida" 
+                    BackgroundColor="#4299E1"
+                    TextColor="White"
+                    CornerRadius="8"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    WidthRequest="220"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

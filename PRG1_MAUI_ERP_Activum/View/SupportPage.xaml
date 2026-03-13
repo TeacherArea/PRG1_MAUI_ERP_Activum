@@ -2,14 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.SupportPage"
-             Title="Hjälp &amp; Support">
-    <VerticalStackLayout>
-        <Label
-            Padding="20"
-            Text="Hjälp &amp; Support"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Hjälp & Support"
+             BackgroundColor="#1E1E2E">
+    <Grid RowDefinitions="Auto, *" Padding="20">
+        <Grid Grid.Row="0" BackgroundColor="#0F3460" HeightRequest="80" Padding="20">
+            <Label Text="Hjälp & Support" VerticalOptions="Center" TextColor="White" FontSize="24" FontAttributes="Bold"/>
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="15" Padding="20">
+                <Label Text="Kontakta IT-avdelningen" FontSize="18" TextColor="White" />
+                <Label Text="Beskriv ditt problem nedan." TextColor="LightGray"/>
+
+                <Entry Placeholder="Ämne" TextColor="White" BackgroundColor="#2A2A3E"/>
+                <Editor Placeholder="Beskriv problemet..." HeightRequest="150" 
+                        BackgroundColor="#2A2A3E" TextColor="White"/>
+
+                <Button Text="Skicka Ärende" BackgroundColor="#4299E1" TextColor="White"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

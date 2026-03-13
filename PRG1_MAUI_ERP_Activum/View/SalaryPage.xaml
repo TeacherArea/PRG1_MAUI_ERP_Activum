@@ -2,14 +2,70 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.SalaryPage"
-             Title="Lön &amp; Bonus">
-    <VerticalStackLayout>
-        <Label
-            Padding="20"
-            Text="Lön &amp; Bonus"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Lön och Bonus"
+             BackgroundColor="#1E1E2E">
+    <Grid RowDefinitions="Auto, *" Padding="20">
+        <Grid Grid.Row="0" BackgroundColor="#0F3460" HeightRequest="80" Padding="20">
+            <Label Text="Lön och Bonus" VerticalOptions="Center" TextColor="White" FontSize="24" FontAttributes="Bold"/>
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="20" Padding="20">
+                <!-- Månadslön - MINDRE rundning -->
+                <Frame BackgroundColor="#2D3748" 
+                       BorderColor="#4A5568" 
+                       CornerRadius="8" 
+                       Padding="15">
+                    <VerticalStackLayout>
+                        <Label Text="Aktuell Månadslön" FontSize="14" TextColor="LightGray"/>
+                        <Label Text="32 500 kr" FontSize="28" FontAttributes="Bold" TextColor="#4299E1"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Löneräknare - MINDRE rundning -->
+                <Frame BackgroundColor="#2D3748" 
+                       BorderColor="#4A5568" 
+                       CornerRadius="8" 
+                       Padding="15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Räkna ut lön Semester" FontSize="20" TextColor="#4299E1"/>
+
+                        <Label Text="Månadens försäljning (kr):" TextColor="#4299E1"/>
+                        <Entry x:Name="SalesEntry" 
+                               Keyboard="Numeric" 
+                               Placeholder="T.ex. 100000"
+                               TextColor="White" 
+                               BackgroundColor="#2A2A3E" />
+
+                        <Label Text="Antal arbetande månader i år" TextColor="#4299E1"/>
+                        <Entry x:Name="MonthsEntry" 
+                               Keyboard="Numeric" 
+                               Placeholder="T.ex. 10"
+                               TextColor="White" 
+                               BackgroundColor="#2A2A3E"/>
+
+                        <Button Text="Beräkna lön" 
+                                BackgroundColor="#4299E1" 
+                                TextColor="White" 
+                                Margin="0,10,0,0" 
+                                Clicked="OnCalculateSalaryClicked"/>
+                        <Label x:Name="ResultLabel" TextColor="White" Margin="0,10,0,0"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Label Text="Utbetalningar" FontSize="18" FontAttributes="Bold" TextColor="#4299E1" Margin="0,10,0,0"/>
+
+                <!-- Utbetalning - MINDRE rundning -->
+                <Grid ColumnDefinitions="*, Auto" Padding="10" BackgroundColor="#2D3748" CornerRadius="1000">
+                    <Label Grid.Column="0" Text="2026-01-25 (Januari)" TextColor="White" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" Text="24 100 kr" FontAttributes="Bold" TextColor="#4299E1" VerticalOptions="Center"/>
+                </Grid>
+
+                <Button Text="Ladda ner lönespecifikation" 
+                        BackgroundColor="#4299E1" 
+                        TextColor="White" 
+                        Margin="0,20,0,0"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>
