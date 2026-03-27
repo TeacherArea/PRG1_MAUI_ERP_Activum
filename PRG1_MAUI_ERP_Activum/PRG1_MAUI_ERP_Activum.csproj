@@ -57,6 +57,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Model\**" />
+	  <AndroidResource Remove="ViewModel\**" />
+	  <Compile Remove="Model\**" />
+	  <Compile Remove="ViewModel\**" />
+	  <EmbeddedResource Remove="Model\**" />
+	  <EmbeddedResource Remove="ViewModel\**" />
+	  <MauiCss Remove="Model\**" />
+	  <MauiCss Remove="ViewModel\**" />
+	  <MauiXaml Remove="Model\**" />
+	  <MauiXaml Remove="ViewModel\**" />
+	  <None Remove="Model\**" />
+	  <None Remove="ViewModel\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <AndroidResource Remove="Platforms\Android\Resources\values\styles.xml" />
 	</ItemGroup>
 
@@ -64,11 +79,6 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.11" />
 		<PackageReference Include="Microsoft.Maui.Essentials" Version="10.0.11" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Model\" />
-	  <Folder Include="ViewModel\" />
 	</ItemGroup>
 
 	<ItemGroup>

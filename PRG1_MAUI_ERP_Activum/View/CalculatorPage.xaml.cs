@@ -2,111 +2,146 @@ namespace PRG1_MAUI_ERP_Activum.View;
 
 public partial class CalculatorPage : ContentPage
 {
-	public CalculatorPage()
-	{
-		InitializeComponent();
-	}
+    double firstNumber = 0;
+    string currentOperation = " ";
+    string currentText = "0";
+    string lastCalculation = " ";
 
-    private double accumulator = 0;
-    private double operand = 0;
-    private string operation = "";
-
-    // hantering för numeriska knappar
-    private void NumberButton(object sender, EventArgs e)
+    public CalculatorPage()
     {
-        Button button = (Button)sender;
-
-        // Bygg upp operand baserat på knapptexten (t.ex. "1", "2")
-        operand = (operand * 10) + Convert.ToDouble(button.Text);
-
-        EntryCalculations.Text += button.Text;
-        EntryResult.Text = operand.ToString();
+        InitializeComponent();
+        Display.Text = "0";
+        LiveInputLabel.Text = " ";
+        HistoryLabel.Text = " ";
     }
 
-
-    // hantering för operator-knappar (+, -, *, /)
-    private void OperatorButton(object sender, EventArgs e)
+    private void OnNumberClicked(object sender, EventArgs e)
     {
-        if (operation != "") // Utför beräkning om en tidigare operation finns
+        Button button = (Button)sender;
+        string number = button.Text;
+
+        if (currentText == "0" && number != ".")
+            currentText = " ";
+
+        if (number == ".")
         {
-            Calculate();
+            if (!currentText.Contains("."))
+                currentText = currentText + ".";
+
+
         }
         else
         {
-            accumulator = operand; // Spara första talet i accumulator
+            currentText = currentText + number;
+
         }
 
-        operand = 0;
+        Display.Text = currentText;
+        LiveInputLabel.Text = currentText;
 
+
+    }
+
+    private void OnOperatorClicked(object sender, EventArgs e)
+    {
         Button button = (Button)sender;
-        operation = button.Text;
+        string newOperation = button.Text;
 
-        EntryCalculations.Text += $" {operation} ";
-    }
+        LiveInputLabel.Text = lastCalculation + " " + newOperation;
 
-
-    private void EqualButton(object sender, EventArgs e)
-    {
-        Calculate();
-
-        EntryResult.Text = accumulator.ToString();
-        EntryCalculations.Text = accumulator.ToString();
-
-        operation = "";
-        operand = 0;
-    }
-
-
-    private void Calculate()
-    {
-        switch (operation)
+        if (currentOperation != " " && currentText != "Error")
         {
-            case "+":
-                accumulator += operand;
-                break;
-            case "-":
-                accumulator -= operand;
-                break;
-            case "*":
-                accumulator *= operand;
-                break;
-            case "/":
-                if (operand == 0) // Hantera division med noll
-                {
-                    DisplayAlertAsync("Fel!", "Division med noll är ej tillåtet.", "OK");
-                    Clear();
-                    return;
-                }
-                accumulator /= operand;
-                break;
+            OnEqualsClicked(null, null);
         }
 
-        operand = 0;
+        firstNumber = double.Parse(currentText);
+        currentOperation = newOperation;
+        lastCalculation = currentText;
+        currentText = "0";
+
+
     }
 
-    private void ClearButton(object sender, EventArgs e)
+    private void OnEqualsClicked(object sender, EventArgs e)
     {
-        Clear();
+        if (currentOperation == " " || currentText == "Error") return;
+
+        double secondNumber = double.Parse(currentText);
+        double result = 0;
+
+        if (currentOperation == "+")
+            result = firstNumber + secondNumber;
+        else if (currentOperation == "-")
+            result = firstNumber - secondNumber;
+        else if (currentOperation == "×")
+            result = firstNumber * secondNumber;
+        else if (currentOperation == "÷")
+        {
+            if (secondNumber == 0)
+            {
+                currentText = "Error";
+                Display.Text = "Error";
+                HistoryLabel.Text = "CANNOT DIVIDE BY ZERO!!!";
+                LiveInputLabel.Text = " ";
+                currentOperation = " ";
+                return;
+            }
+            result = firstNumber / secondNumber;
+
+        }
+
+        currentText = result.ToString();
+        Display.Text = currentText;
+        HistoryLabel.Text = firstNumber + " " + currentOperation + " " + secondNumber + " = " + currentText;
+        LiveInputLabel.Text = " ";
+        currentOperation = " ";
+
+
     }
 
-    private void Clear()
+    private void OnClearClicked(object sender, EventArgs e)
     {
-        accumulator = 0;
-        operand = 0;
-        operation = "";
-
-        EntryCalculations.Text = "";
-        EntryResult.Text = "0";
+        firstNumber = 0;
+        currentText = "0";
+        currentOperation = " ";
+        lastCalculation = " ";
+        Display.Text = "0";
+        HistoryLabel.Text = " ";
+        LiveInputLabel.Text = " ";
     }
 
-    private void StoreInMemoryButton(object sender, EventArgs e)
+    private void OnClearEntryClicked(object sender, EventArgs e)
     {
-        EntryCalculations.Text = "Kommande funktion";
+        currentText = "0";
+        Display.Text = "0";
+        LiveInputLabel.Text = " ";
     }
 
-    private void CatchFromMemoryButton(object sender, EventArgs e)
+    private void OnBackspaceClicked(object sender, EventArgs e)
     {
-        EntryCalculations.Text = "Kommande funktion";
+        if (currentText.Length > 1)
+        {
+            currentText = currentText.Substring(0, currentText.Length - 1);
+            Display.Text = currentText;
+            LiveInputLabel.Text = currentText;
+        }
+        else
+        {
+            currentText = "0";
+            Display.Text = "0";
+            LiveInputLabel.Text = " ";
+        }
     }
 
+    private void OnDecimalClicked(object sender, EventArgs e)
+    {
+        if (!currentText.Contains("."))
+        {
+            currentText = currentText + ".";
+            Display.Text = currentText;
+            LiveInputLabel.Text = currentText;
+
+
+        }
+    }
 }

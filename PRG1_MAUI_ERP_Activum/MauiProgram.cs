@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using PRG1_MAUI_ERP_Activum.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace PRG1_MAUI_ERP_Activum
 {
@@ -17,6 +18,8 @@ namespace PRG1_MAUI_ERP_Activum
 
 #if DEBUG
     		builder.Logging.AddDebug();
+
+            builder.Services.AddSingleton<CustomerViewModel>();
 #endif
             return builder.Build();
         }
