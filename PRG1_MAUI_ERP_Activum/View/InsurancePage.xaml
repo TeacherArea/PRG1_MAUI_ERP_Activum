@@ -2,14 +2,59 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.InsurancePage"
-             Title="Försäkringar">
-    <VerticalStackLayout>
-        <Label
-            Padding="20"
-            Text="Försäkringar"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            Title="Försäkringar">
+    <Grid RowDefinitions="Auto, *" BackgroundColor="{StaticResource White}">
+
+        <Grid Grid.Row="0" BackgroundColor="{StaticResource Primary}" HeightRequest="100" Padding="25">
+            <Label Text="Mina försäkringar" 
+                   VerticalOptions="Center"
+                   TextColor="{StaticResource White}"
+                   FontSize="25" FontAttributes="Bold"/>
+        </Grid>
+
+        <ScrollView Grid.Row="1" Padding="20">
+            <VerticalStackLayout Spacing="20">
+
+                <Frame BorderColor="{StaticResource Gray200}" CornerRadius="10" Padding="15" BackgroundColor="{StaticResource White}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Skapa ny skadeanmälan" FontSize="20" TextColor="{StaticResource Primary}" />
+
+                        <Entry Placeholder="Försäkringsnummer (t.ex. 11-222-33)"/>
+
+                        <Label Text="Typ av skada:" TextColor="{StaticResource Primary}"/>
+                        <Picker Title="Välj skadetyp">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Vattenskada</x:String>
+                                    <x:String>Brand</x:String>
+                                    <x:String>Stöld</x:String>
+                                    <x:String>Trafikolycka</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <Label Text="Beskriv Händelsen:" TextColor="{StaticResource Gray600}"/>
+                        <Editor Placeholder="Vad hände? När hände det?" HeightRequest="100" BackgroundColor="{StaticResource Gray600}"></Editor>
+
+
+                        <Button Text="Skicka in anmälan" BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource White}"></Button>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Label Text="Dina pågående ärenden" FontSize="20" TextColor="{StaticResource Primary}"></Label>
+
+                <Grid ColumnDefinitions="*, Auto" BackgroundColor="{StaticResource Gray200}" Padding="10">
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="Ärende #4042" TextColor="{StaticResource Black}"></Label>
+                        <Label Text="Vattenskada i kök" TextColor="{StaticResource Gray500}"></Label>
+                    </VerticalStackLayout>
+                    <Label Grid.Column="1" Text="Under utredning" TextColor="{StaticResource Gray900}" VerticalOptions="Center"></Label>
+                </Grid>
+                
+ 
+
+            </VerticalStackLayout>
+        </ScrollView> 
+         
+    </Grid>
 </ContentPage>

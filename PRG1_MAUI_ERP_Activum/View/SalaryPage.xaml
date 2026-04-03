@@ -2,14 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.SalaryPage"
-             Title="Lön &amp; Bonus">
-    <VerticalStackLayout>
-        <Label
-            Padding="20"
-            Text="Lön &amp; Bonus"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Lön och Bonus">
+    <Grid RowDefinitions="Auto, *" BackgroundColor="{StaticResource White}">
+        <Grid Grid.Row="0" BackgroundColor="{StaticResource Primary}" HeightRequest="80" Padding="20,0">
+            <Label Text="Lön och Bonus" VerticalOptions="Center" TextColor="{StaticResource White}" FontSize="24" FontAttributes="Bold"/>
+        </Grid>
+
+        <ScrollView Grid.Row="1" Padding="20">
+            <VerticalStackLayout Spacing="20">
+                <Frame BackgroundColor="{StaticResource White}" BorderColor="{StaticResource Gray200}" CornerRadius="10" Padding="15">
+                    <VerticalStackLayout>
+                        <Label Text="Aktuell Månadslön" FontSize="14" TextColor="{StaticResource Gray500}"/>
+                        <Label Text="32 500 kr" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource Primary}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="{StaticResource White}" BorderColor="{StaticResource Gray300}" CornerRadius="10" Padding="15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Räkna ut lön Semester" FontSize="20" TextColor="{StaticResource Primary}"/>
+
+                        <Label Text="Månadens försäljning (kr):" TextColor="{StaticResource Primary}"/>
+                        <Entry x:Name="SalesEntry" Keyboard="Numeric" Placeholder="T.ex. 100000" TextColor="Black" />
+
+                        <Label Text="Antal arbetande månader i år" TextColor="{StaticResource Primary}"/>
+                        <Entry x:Name="MonthsEntry" Keyboard="Numeric" Placeholder="T.ex. 10" TextColor="Black"/>
+
+                        <Button Text="Beräkna lön" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource White}" Margin="0,10,0,0" Clicked="OnCalculateSalaryClicked"></Button>
+                        <Label x:Name="ResultLabel" TextColor="{StaticResource Black}" Margin="0,10,0,0"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Label Text="Utbetalningar" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Primary}" Margin="0,10,0,0"/>
+
+                <Grid ColumnDefinitions="*, Auto" Padding="10" BackgroundColor="{StaticResource Gray100}">
+                    <Label Grid.Column="0" Text="2026-01-25 (Januari)" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" Text="24 100 kr" FontAttributes="Bold" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
+                </Grid>
+
+                <Button Text="Ladda ner lönespecifikation" BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource White}" Margin="0,20,0,0"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>
