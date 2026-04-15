@@ -11,7 +11,7 @@ namespace PRG1_MAUI_ERP_Activum.Model
         public string LastName { get; set; } = "";
         public string Email { get; set; } = "";
         public string Phone { get; set; } = "";
-        public List<Guid> InsuranceId { get; set; } = new(); // vilka försäkringar kunden har (en "relation")
+        public List<Guid> InsuranceId { get; set; } = new(); // vilka försäkringar kunden har (en "relation"), men än finns inte en Insurance-klass
 
         public Customer(string firstName, string lastName, string email, string phone)
         {

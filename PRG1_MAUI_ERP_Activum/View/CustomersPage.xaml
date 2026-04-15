@@ -20,9 +20,7 @@
         </Grid>
 
         <CollectionView
-            x:Name="CustomersCollection"
-            SelectionMode="Single"
-            SelectionChanged="Customers_SelectionChanged">
+            x:Name="CustomersCollection">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -37,8 +35,8 @@
 
         </CollectionView>
 
-        <Label Text="Försäkringar för vald kund" FontAttributes="Bold" Margin="0,30,0,0"/>
+        <Label Text="Försäkringar för vald kund" FontAttributes="Bold" Margin="0,30,0,10"/>
 
-        <Label Text="&lt;tomt än så länge&gt;" />
+        <Label Text="&lt; tomt, än så länge &gt;" />
     </VerticalStackLayout>
 </ContentPage>

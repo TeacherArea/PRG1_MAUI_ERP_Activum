@@ -15,18 +15,6 @@ namespace PRG1_MAUI_ERP_Activum.View
             CustomersCollection.ItemsSource = _service.Customers;
         }
 
-        //private void Customers_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    var selected = e.CurrentSelection.FirstOrDefault() as Customer;
-        //    if (selected == null)
-        //    {
-        //        CustomerInsurances.ItemsSource = null;
-        //        return;
-        //    }
-
-        //    CustomerInsurances.ItemsSource = _service.GetInsurancesForCustomer(selected).ToList();
-        //}
-
         private void AddCustomer_Clicked(object sender, EventArgs e)
         {
             _service.Customers.Add(new Customer("", "", "", ""));
@@ -38,5 +26,9 @@ namespace PRG1_MAUI_ERP_Activum.View
             if (selected != null)
                 _service.Customers.Remove(selected);
         }
+
+        // TODO: Lägga till en CollectionView i xaml (en InsuranceCollection), ge CustomersCollection en SelectionChange samt metod för att visa försäkringar för vald kund
+
+        // TODO: Funktion för att updatera en redan befintlig kund
     }
 }
