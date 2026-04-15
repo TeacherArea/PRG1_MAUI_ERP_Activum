@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst;</TargetFrameworks>
@@ -68,23 +68,88 @@
 
 	<ItemGroup>
 	  <Folder Include="Model\" />
-	  <Folder Include="ViewModel\" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Resources\Styles\ActivumTheme.xaml.cs">
+	    <DependentUpon>ActivumTheme.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Auth\LoginPage.xaml.cs">
+	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Customer\CustomerHomePage.xaml.cs">
+	    <DependentUpon>CustomerHomePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Employee\EmployeeHomePage.xaml.cs">
+	    <DependentUpon>EmployeeHomePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Employee\RiskSettingsPage.xaml.cs">
+	    <DependentUpon>RiskSettingsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Shared\HeaderView.xaml.cs">
+	    <DependentUpon>HeaderView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Shared\LogoutPage.xaml.cs">
+	    <DependentUpon>LogoutPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Shared\HelpPage.xaml.cs">
+	    <DependentUpon>HelpPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Shared\SharedHeader.xaml.cs">
+	    <DependentUpon>SharedHeader.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Shared\StartPage.xaml.cs">
+	    <DependentUpon>StartPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Tools\PerDiemPage.xaml.cs">
+	    <DependentUpon>PerDiemPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Tools\SalaryBonusPage.xaml.cs">
+	    <DependentUpon>SalaryBonusPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Resources\Styles\ActivumTheme.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Auth\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Customer\CustomerHomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\CustomFlyoutView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\AboutPage.xaml">
+	  <MauiXaml Update="View\Employee\EmployeeHomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\CalculatorPage.xaml">
+	  <MauiXaml Update="View\Employee\RiskSettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\CustomersPage.xaml">
+	  <MauiXaml Update="View\Shared\AboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\InsurancePage.xaml">
+	  <MauiXaml Update="View\Customer\CalculatorPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Employee\CustomersPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Customer\InsurancePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Shared\HeaderView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Shared\LogoutPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Shared\HelpPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Shared\SharedHeader.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\PerDiemPage.xaml">
@@ -93,10 +158,19 @@
 	  <MauiXaml Update="View\SalaryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\SupportPage.xaml">
+	  <MauiXaml Update="View\Shared\StartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\ToolsPage.xaml">
+	  <MauiXaml Update="View\Shared\SupportPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Employee\ToolsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Tools\PerDiemPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Tools\SalaryBonusPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

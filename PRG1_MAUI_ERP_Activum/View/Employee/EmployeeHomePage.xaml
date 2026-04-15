@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PRG1_MAUI_ERP_Activum.View.Employee.EmployeeHomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:shared="clr-namespace:PRG1_MAUI_ERP_Activum.View.Shared"
+    Title="Adminpanel">
+
+    <VerticalStackLayout>
+        <Label
+        Padding="20"
+        Text="Försäkringar"
+        Style="{StaticResource Headline}"
+        SemanticProperties.HeadingLevel="Level1"
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" />
+        <Label
+        Text="Här nere finns det exempel på bra försäkringar för att hålla dig och ditt projekt skyddat. Allt från hem försäkringar till dina egna privata försäkringar, vi har allt du behöver."
+        FontSize="15"/>
+    </VerticalStackLayout>
+</ContentPage>
