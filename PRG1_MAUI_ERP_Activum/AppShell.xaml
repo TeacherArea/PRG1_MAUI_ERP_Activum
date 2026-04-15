@@ -3,21 +3,87 @@
     x:Class="PRG1_MAUI_ERP_Activum.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:PRG1_MAUI_ERP_Activum.View">
-
-    <Shell.FlyoutContent>
-        <local:CustomFlyoutView />
-    </Shell.FlyoutContent>
-
-    <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
-    <ShellContent Route="CustomersPage" ContentTemplate="{DataTemplate local:CustomersPage}" />
-    <ShellContent Route="InsurancePage" ContentTemplate="{DataTemplate local:InsurancePage}" />
-    <ShellContent Route="ToolsPage" ContentTemplate="{DataTemplate local:ToolsPage}" />
-    <ShellContent Route="SupportPage" ContentTemplate="{DataTemplate local:SupportPage}" />
-
-    <ShellContent Route="CalculatorPage" ContentTemplate="{DataTemplate local:CalculatorPage}" />
-    <ShellContent Route="SalaryPage" ContentTemplate="{DataTemplate local:SalaryPage}" />
-    <ShellContent Route="PerDiemPage" ContentTemplate="{DataTemplate local:PerDiemPage}" />
-    <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    xmlns:shared="clr-namespace:PRG1_MAUI_ERP_Activum.View.Shared"
+    xmlns:auth="clr-namespace:PRG1_MAUI_ERP_Activum.View.Auth"
+    xmlns:customer="clr-namespace:PRG1_MAUI_ERP_Activum.View.Customer"
+    xmlns:employee="clr-namespace:PRG1_MAUI_ERP_Activum.View.Employee"
+    xmlns:tools="clr-namespace:PRG1_MAUI_ERP_Activum.View.Tools"
+    xmlns:customers="clr-namespace:PRG1_MAUI_ERP_Activum.View.Customers"
+    xmlns:insurance="clr-namespace:PRG1_MAUI_ERP_Activum.View.Insurance">
     
+    <!-- Start / Login -->
+    <ShellContent Route="StartPage" ContentTemplate="{DataTemplate shared:StartPage}" />
+    <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate auth:LoginPage}" />
+
+    <!-- 👤 KUNDER -->
+    <FlyoutItem x:Name="CustomerMenu" Title="Kunder" IsVisible="False">
+        <ShellContent
+            Title="Min sida"
+            Route="CustomerHome"
+            ContentTemplate="{DataTemplate customer:CustomerHomePage}" />
+    </FlyoutItem>
+
+    <!-- 🛡️ FÖRSÄKRING -->
+    <FlyoutItem x:Name="InsuranceMenu" Title="Försäkring" IsVisible="False">
+        <ShellContent
+            Title="Översikt"
+            Route="InsuranceHome"
+            ContentTemplate="{DataTemplate employee:EmployeeHomePage}" />
+    </FlyoutItem>
+
+    <!-- 🛠 VERKTYG -->
+    <FlyoutItem
+    x:Name="ToolsMenu"
+    Title="Verktyg"
+    IsVisible="False">
+
+        <ShellContent
+        Title="Kalkylator"
+        Route="Calculator"
+        ContentTemplate="{DataTemplate customer:CalculatorPage}" />
+
+        <ShellContent
+        Title="Lön och Bonus"
+        Route="SalaryBonus"
+        ContentTemplate="{DataTemplate tools:SalaryBonusPage}" />
+
+        <ShellContent
+        Title="Traktamente"
+        Route="PerDiem"
+        ContentTemplate="{DataTemplate tools:PerDiemPage}" />
+
+    </FlyoutItem>
+    <FlyoutItem Title="KunderRegister">
+        <ShellContent
+        Title="Kundregister"
+        ContentTemplate="{DataTemplate customers:CustomerRegisterPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Försäkringarregister">
+        <ShellContent
+        Title="Försäkringsregister"
+        ContentTemplate="{DataTemplate insurance:InsuranceRegisterPage}" />
+    </FlyoutItem>
+
+
+    <!-- ℹ️ OM -->
+    <FlyoutItem x:Name="AboutMenu" Title="Om utvecklarna" IsVisible="False">
+        <ShellContent
+            Title="Om oss"
+            ContentTemplate="{DataTemplate shared:AboutPage}" />
+    </FlyoutItem>
+
+    <!-- ❓ HJÄLP -->
+    <FlyoutItem x:Name="HelpMenu" Title="Hjälp och support" IsVisible="False">
+        <ShellContent
+            Title="Support"
+            ContentTemplate="{DataTemplate shared:HelpPage}" />
+    </FlyoutItem>
+
+    <!-- 🚪 LOGGA UT -->
+    <FlyoutItem x:Name="LogoutFlyout" Title="Logga ut" IsVisible="False">
+        <ShellContent
+            Title="Logga ut"
+            ContentTemplate="{DataTemplate shared:LogoutPage}" />
+    </FlyoutItem>
 </Shell>

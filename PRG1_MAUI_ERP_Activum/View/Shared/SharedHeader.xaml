@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="PRG1_MAUI_ERP_Activum.View.Shared.SharedHeader"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid
+        x:Name="HeaderRoot"
+        BackgroundColor="#134f5c"
+        Padding="16"
+        ColumnDefinitions="*,Auto">
+
+        <!-- 🔷 App title -->
+        <VerticalStackLayout>
+            <Label
+                x:Name="TitleLabel"
+                Text="ACTIVUM"
+                FontSize="22"
+                FontAttributes="Bold"
+                TextColor="White" />
+
+            <Label
+                x:Name="SubtitleLabel"
+                FontSize="12"
+                TextColor="#d3dfe3"
+                IsVisible="False" />
+        </VerticalStackLayout>
+
+        <!-- 👤 User info -->
+        <VerticalStackLayout
+            Grid.Column="1"
+            Spacing="4"
+            HorizontalOptions="End"
+            IsVisible="{Binding IsLoggedIn}">
+
+            <Label
+                Text="{Binding UsernameText}"
+                FontSize="12"
+                TextColor="White" />
+
+            <Label
+                Text="{Binding RoleText}"
+                FontSize="11"
+                TextColor="#d3dfe3" />
+
+            <Button
+                Text="Logga ut"
+                FontSize="11"
+                BackgroundColor="Transparent"
+                TextColor="White"
+                Clicked="OnLogoutClicked" />
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentView>
