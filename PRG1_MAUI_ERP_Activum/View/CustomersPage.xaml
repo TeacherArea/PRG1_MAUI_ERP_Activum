@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.CustomersPage"
              Title="Kunder">
-    <VerticalStackLayout>
+    <VerticalStackLayout Margin="10">
         <Label
             Padding="20"
             Text="Kunder"
@@ -39,22 +39,6 @@
 
         <Label Text="Försäkringar för vald kund" FontAttributes="Bold" Margin="0,30,0,0"/>
 
-        <Grid ColumnDefinitions="2*,1*,1*" Padding="5" BackgroundColor="#EEEEEE">
-            <Label Text="Typ" Grid.Column="0" FontAttributes="Bold" />
-            <Label Text="Kostnad" Grid.Column="1" FontAttributes="Bold" />
-            <Label Text="Aktiv" Grid.Column="2" FontAttributes="Bold" />
-        </Grid>
-
-        <CollectionView x:Name="CustomerInsurances">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid ColumnDefinitions="2*,1*,1*" Padding="5">
-                        <Label Text="{Binding InsuranceType}" Grid.Column="0" />
-                        <Label Text="{Binding MonthlyCost}" Grid.Column="1" HorizontalTextAlignment="Start" />
-                        <Label Text="{Binding StartDate}" Grid.Column="2" HorizontalTextAlignment="Start" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <Label Text="&lt;tomt än så länge&gt;" />
     </VerticalStackLayout>
 </ContentPage>
